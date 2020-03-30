@@ -34,5 +34,5 @@ python bbhelper.py
 
 不能抓取视频页面,暂时用ban_list的设置来不爬取一些资源,如以下页面:
 
-![image-20200330150124487](C:\Users\82123\AppData\Roaming\Typora\typora-user-images\image-20200330150124487.png)
+![image-20200330150124487](https://github.com/gy991007/USTCBBhelper/blob/master/issue1.png)
 
