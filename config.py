@@ -11,10 +11,10 @@ data={
 'service': r'http://www.bb.ustc.edu.cn/nginx_auth/login.php?next=68747470733a2f2f7777772e62622e757374632e6564752e636e2f776562617070732f706f7274616c2f657865637574652f746162732f746162416374696f6e3f7461625f7461625f67726f75705f69643d5f315f31',
 'warn': '',
 'showCode':'',
-'username': 'PB000000',
-'password': 'xxxxxxxxxx',
+'username': 'PB17030852',
+'password': 'abc6123666',
 'button': ''
 }
 host=r'https://www.bb.ustc.edu.cn'
-des=r'yourdes'
-#ban_list=[r'数据库系统及应用\ppt\demo'] #不下视频
+des=r'D:\\BBhelper'
+ban_list=[r'数据库系统及应用\ppt\demo'] #不下视频

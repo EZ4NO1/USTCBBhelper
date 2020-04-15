@@ -2,7 +2,12 @@ import  requests
 import  bs4
 import os
 from config import des,headers,host,ban_list
-def download(path,r,session):
+first_line=False
+count=0
+def set_first_line(x):
+    global first_line
+    first_line=x
+def download(path, r, session):
         for i in ban_list:
             if os.path.normcase(path)==os.path.normcase(os.path.join(des,i)):
                 return
@@ -15,7 +20,7 @@ def download(path,r,session):
                 downloadlist.append(i)
         for i in downloadlist:
             flag=True
-            rfile = session.get(host + i.get('href').strip(), headers=headers, verify=False)
+            rfile = session.head(host + i.get('href').strip(), headers=headers, verify=False,allow_redirects=True)
             if (i.span):
                 span_name=i.span.string.strip()
             else:
@@ -26,14 +31,23 @@ def download(path,r,session):
             if r'text/html' in rfile.headers['Content-Type']:
                 if not os.path.exists(os.path.join(path,span_name)):
                     os.mkdir(os.path.join(path,span_name))
-                    download(os.path.join(path,span_name), rfile, session)
+                rfile = session.get(host + i.get('href').strip(), headers=headers, verify=False)
+                download(os.path.join(path,span_name), rfile, session)
             else:
                 ExtendName = rfile.url[rfile.url.rfind('.'):]
                 if flag:
                     full_name=os.path.join(path,span_name+ExtendName)
                 else:
                     full_name = os.path.join(path, span_name)
+                #print(full_name)
                 if not os.path.exists(full_name):
+                    rfile = session.get(host + i.get('href').strip(), headers=headers, verify=False)
                     with open(full_name,"wb") as f:
                         f.write(rfile.content)
+                        if first_line:
+                            print("")
+                            set_first_line(False)
+                        global count
+                        count=count+1
                         print("create new file:     "+os.path.join(path,span_name+ExtendName))
+

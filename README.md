@@ -30,9 +30,16 @@ python bbhelper.py
 
 ## 现有的问题:
 
-文件的不覆盖验证在get到文件之后,增量更新很慢(待解决)
+~~文件的不覆盖验证在get到文件之后,增量更新很慢(待解决)~~
 
 不能抓取视频页面,暂时用ban_list的设置来不爬取一些资源,如以下页面:
 
 ![image-20200330150124487](https://github.com/gy991007/USTCBBhelper/blob/master/issue1.png)
 
+# UPDATE:
+
+## 2020/4/15:
+
+利用request.head实现了增量更新,更新速度极大提升
+
+优化了命令行中的信息反馈
