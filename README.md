@@ -28,6 +28,14 @@ python bbhelper.py
 
 然后你的BB课程资源会按课程,按网页上的分类,整理好后放在des目录下
 
+# UPDATE:
+
+## 2020/4/15:
+
+利用request.head实现了增量更新,更新速度极大提升
+
+优化了命令行中的信息反馈
+
 ## 现有的问题:
 
 ~~文件的不覆盖验证在get到文件之后,增量更新很慢(待解决)~~
@@ -36,10 +44,3 @@ python bbhelper.py
 
 ![image-20200330150124487](https://github.com/gy991007/USTCBBhelper/blob/master/issue1.png)
 
-# UPDATE:
-
-## 2020/4/15:
-
-利用request.head实现了增量更新,更新速度极大提升
-
-优化了命令行中的信息反馈
